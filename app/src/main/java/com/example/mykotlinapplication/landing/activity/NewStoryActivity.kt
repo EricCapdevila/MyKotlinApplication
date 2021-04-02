@@ -36,6 +36,4 @@ class NewStoryActivity : AppCompatActivity(){
             commit()
         }
     }
-
-
 }

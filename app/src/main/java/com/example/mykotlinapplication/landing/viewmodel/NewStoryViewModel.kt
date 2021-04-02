@@ -11,13 +11,16 @@ class NewStoryViewModel(repository: Repository) : ViewModel() {
     private val storyLiveData: MutableLiveData<Story> = MutableLiveData()
     private var repository : Repository = repository
 
+    lateinit var title: String
+    lateinit var abstract: String
+
     //this is what will be observed
     fun getStory() {
         repository.getStories()
     }
 
-    fun setStory(model : Story){gi
-        repository.insertStory(model)
+    fun setStory(){
+        repository.insertStory(Story(title, abstract))
     }
 
     fun deleteStory(model: Story){
