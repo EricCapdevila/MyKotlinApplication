@@ -16,12 +16,12 @@ interface StoryDao {
     @Query("SELECT * FROM story")
     fun getAll(): List<Story>
 
-    @Query("SELECT * FROM story WHERE uid IN (:userIds)")
-    fun loadAllByIds(userIds: IntArray): List<Story>
+/*    @Query("SELECT * FROM story WHERE id IN (:ids)")
+    fun loadAllByIds(ids: IntArray): List<Story>
 
     @Query("SELECT * FROM user WHERE first_name LIKE :first AND " +
             "last_name LIKE :last LIMIT 1")
-    fun findByName(first: String, last: String): Story
+    fun findByName(first: String, last: String): Story*/
 
     @Insert
     fun insertAll(vararg stories: Story)

@@ -17,14 +17,16 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         var INSTANCE: AppDatabase? = null
         fun getInstance(context: Context): AppDatabase {
-            if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    "AppDatabase.db"
-                ).build()
+            synchronized(this) { //so it is not accessed by multiple threads
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(
+                        context.applicationContext,
+                        AppDatabase::class.java,
+                        "AppDatabase.db"
+                    ).build()
+                }
+                return INSTANCE as AppDatabase
             }
-            return INSTANCE as AppDatabase
         }
     }
 }

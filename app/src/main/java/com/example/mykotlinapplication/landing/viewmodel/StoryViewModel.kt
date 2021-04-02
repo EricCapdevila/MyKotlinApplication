@@ -7,14 +7,17 @@ import com.example.mykotlinapplication.repository.Repository
 import com.example.mykotlinapplication.room.entities.Story
 
 
-class NewStoryViewModel(repository: Repository) : ViewModel() {
+class StoryViewModel(repository: Repository) : ViewModel() {
+    private val storyLiveData: MutableLiveData<Story> = MutableLiveData()
     private var repository : Repository = repository
 
-    lateinit var title: String
-    lateinit var abstract: String
 
-    fun setStory(){
-        repository.insertStory(Story(title, abstract))
+    //this is what will be observed
+    fun getStories() : List<Story>{
+        return repository.getStories()
     }
 
+    fun deleteStory(model: Story){
+        repository.deleteStory(model)
+    }
 }

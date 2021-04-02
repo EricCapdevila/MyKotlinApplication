@@ -8,8 +8,8 @@ class Repository (context: Context){
 
     var storyDao = AppDatabase.getInstance(context).storyDao()
 
-    fun getStories(){
-        storyDao.getAll()
+    fun getStories() : List<Story>{
+        return storyDao.getAll()
     }
 
     fun insertStory(story: Story){

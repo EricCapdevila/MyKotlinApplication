@@ -2,14 +2,14 @@ package com.example.mykotlinapplication.landing.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.landing.fragment.NewStoryFragment
 import com.example.mykotlinapplication.landing.fragment.NewStoryFragment.Companion.TITLE
 import com.example.mykotlinapplication.landing.viewmodel.NewStoryViewModel
+import com.example.mykotlinapplication.landing.viewmodel.ViewModelFactory
+import com.example.mykotlinapplication.repository.Repository
 
 class NewStoryActivity : AppCompatActivity(){
 
@@ -18,7 +18,8 @@ class NewStoryActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_story_activity)
-        viewModel = ViewModelProvider(this).get(NewStoryViewModel::class.java)
+        viewModel = ViewModelProvider(this, ViewModelFactory(Repository(this)))
+            .get(NewStoryViewModel::class.java)
         if(savedInstanceState == null){ //first time called, new activity
             supportFragmentManager.commit{
                 setReorderingAllowed(true)

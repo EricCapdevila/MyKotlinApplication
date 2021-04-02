@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -17,7 +18,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    apply plugin: 'kotlin-android'
     buildTypes {
         release {
             minifyEnabled false
@@ -50,5 +50,9 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "androidx.room:room-runtime:2.2.6"
+
+    // Room components
+    implementation "androidx.room:room-ktx:$rootProject.room_version"
+    kapt "androidx.room:room-compiler:$rootProject.room_version"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.room_version"
 }
