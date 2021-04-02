@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">Story Storage</string>
+    <string name="new_story">New Story</string>
+    <string name="new_story_title">Title</string>
+    <string name="new_story_abstract">Abstract</string>
+    <string name="new_story_next">Next</string>
+    <string name="new_story_finish">Finish</string>
+</resources>
