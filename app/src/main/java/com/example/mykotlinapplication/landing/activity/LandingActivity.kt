@@ -2,15 +2,17 @@ package com.example.mykotlinapplication.landing.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.ActivityLandingBinding
-import com.example.mykotlinapplication.landing.fragment.NewStoryFragment
 import com.example.mykotlinapplication.landing.viewmodel.StoryViewModel
 import com.example.mykotlinapplication.landing.viewmodel.ViewModelFactory
 import com.example.mykotlinapplication.repository.Repository
+import com.example.mykotlinapplication.room.entities.Story
 
 class LandingActivity: AppCompatActivity()  {
 
@@ -23,10 +25,26 @@ class LandingActivity: AppCompatActivity()  {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_landing)
         viewModel = ViewModelProvider(this, ViewModelFactory(Repository(this)))
             .get(StoryViewModel::class.java)
-        setListener()
+        viewModel.getStories()
+        observeData()
+        setButtonListeners()
     }
 
-    fun setListener(){
+    override fun onResume() {
+        super.onResume()
+        viewModel.getStories()
+    }
+
+    fun observeData(){
+        viewModel.storiesLiveData.observe(this, Observer(lambda))
+    }
+
+    val lambda = fun (list : List<Story>){
+        println("this is the result of stories")
+        println(list)
+    }
+
+    fun setButtonListeners(){
         binding.buttonNew.setOnClickListener {
             startActivity(Intent(this, NewStoryActivity::class.java))
         }

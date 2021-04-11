@@ -14,7 +14,7 @@ interface StoryDao {
     // then it can move to the next function)
 
     @Query("SELECT * FROM story")
-    fun getAll(): List<Story>
+    suspend fun getAll(): List<Story>
 
 /*    @Query("SELECT * FROM story WHERE id IN (:ids)")
     fun loadAllByIds(ids: IntArray): List<Story>
@@ -24,7 +24,7 @@ interface StoryDao {
     fun findByName(first: String, last: String): Story*/
 
     @Insert
-    fun insertAll(vararg stories: Story)
+    suspend fun insertAll(vararg stories: Story)
 
     @Delete
     fun delete(story: Story)
