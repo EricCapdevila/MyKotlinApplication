@@ -36,12 +36,10 @@ class LandingActivity: AppCompatActivity()  {
     }
 
     fun observeData(){
-        viewModel.storiesLiveData.observe(this, Observer(lambda))
-    }
-
-    val lambda = fun (list : List<Story>){
-        println("this is the result of stories")
-        println(list)
+        viewModel.storiesLiveData.observe(this, Observer { list ->
+            println("this is the result of stories")
+            println(list)
+        })
     }
 
     fun setButtonListeners(){
