@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".landing.activity.LandingActivity"/>
         <activity android:name=".landing.activity.NewStoryActivity"/>
+        <activity android:name=".landing.activity.MainStoryActivity"/>
+
     </application>
 
 </manifest>
