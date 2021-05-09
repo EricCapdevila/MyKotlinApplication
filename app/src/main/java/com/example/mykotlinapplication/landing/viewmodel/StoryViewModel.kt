@@ -9,9 +9,9 @@ import com.example.mykotlinapplication.room.entities.Story
 import kotlinx.coroutines.launch
 
 
-class StoryViewModel(repository: Repository) : ViewModel() {
-    public val storiesLiveData: MutableLiveData<List<Story>> = MutableLiveData()
-    private var repository : Repository = repository
+class StoryViewModel( val repository: Repository) : ViewModel() {
+
+     val storiesLiveData: MutableLiveData<List<Story>> = MutableLiveData()
 
 
     //this is what will be observed
@@ -21,7 +21,15 @@ class StoryViewModel(repository: Repository) : ViewModel() {
         }
     }
 
-    fun deleteStory(model: Story){
-        repository.deleteStory(model)
+    fun deleteStory(story: Story){
+        viewModelScope.launch {
+            repository.deleteStory( story)
+        }
+    }
+
+    fun deleteStoryWithTitle(title: String) {
+        viewModelScope.launch{
+            repository.deleteStoryByTitle(title)
+        }
     }
 }

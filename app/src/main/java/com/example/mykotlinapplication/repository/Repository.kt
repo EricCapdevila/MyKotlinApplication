@@ -16,7 +16,11 @@ class Repository (context: Context){
         storyDao.insertAll(story)
     }
 
-    fun deleteStory(story: Story){
+    suspend fun deleteStory(story: Story){
         storyDao.delete(story)
+    }
+
+    suspend fun deleteStoryByTitle(title: String){
+        storyDao.deleteByTitle(title)
     }
 }

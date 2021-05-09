@@ -26,6 +26,9 @@ interface StoryDao {
     @Insert
     suspend fun insertAll(vararg stories: Story)
 
+    @Query("DELETE FROM story WHERE title = :title")
+    suspend fun deleteByTitle(title: String)
+
     @Delete
-    fun delete(story: Story)
+    suspend fun delete(story: Story)
 }

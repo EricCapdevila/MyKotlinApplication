@@ -18,7 +18,7 @@ import com.example.mykotlinapplication.room.entities.Story
 class LandingActivity: AppCompatActivity()  {
 
     private lateinit var binding : ActivityLandingBinding
-    private lateinit var viewModel : StoryViewModel
+    lateinit var viewModel : StoryViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,6 @@ class LandingActivity: AppCompatActivity()  {
         viewModel = ViewModelProvider(this, ViewModelFactory(Repository(this)))
             .get(StoryViewModel::class.java)
         viewModel.getStories()
-        //setRecycler( listOf(Story("a", "a"), Story("b", "b"), Story("c", "c"), Story("d", "c")))
         observeData()
     }
 
