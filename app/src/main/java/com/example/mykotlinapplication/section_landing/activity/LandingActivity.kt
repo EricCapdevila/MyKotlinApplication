@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.landing.activity
+package com.example.mykotlinapplication.section_landing.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.ActivityLandingBinding
-import com.example.mykotlinapplication.landing.adapter.LandingListAdapter
-import com.example.mykotlinapplication.landing.viewmodel.StoryViewModel
-import com.example.mykotlinapplication.landing.viewmodel.ViewModelFactory
+import com.example.mykotlinapplication.section_landing.adapter.LandingListAdapter
+import com.example.mykotlinapplication.section_landing.viewmodel.StoryViewModel
+import com.example.mykotlinapplication.section_landing.viewmodel.ViewModelFactory
 import com.example.mykotlinapplication.repository.Repository
 import com.example.mykotlinapplication.room.entities.Story
 
@@ -42,9 +42,10 @@ class LandingActivity: AppCompatActivity()  {
     }
 
     fun setRecycler(list : List<Story>) {
-        binding.landingList.adapter = LandingListAdapter(list, this)
-        binding.landingList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false )
-        //(binding.landingList.adapter as LandingListAdapter).notifyDataSetChanged()
+        binding.landingList.let{
+            it.adapter = LandingListAdapter(list, this)
+            it.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false )
+        }
     }
 
 }

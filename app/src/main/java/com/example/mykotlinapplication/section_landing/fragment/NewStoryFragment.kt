@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.landing.fragment
+package com.example.mykotlinapplication.section_landing.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.NewStoryFragmentBinding
-import com.example.mykotlinapplication.landing.activity.NewStoryActivity
-import com.example.mykotlinapplication.landing.viewmodel.NewStoryViewModel
-import com.example.mykotlinapplication.room.entities.Story
+import com.example.mykotlinapplication.section_landing.activity.NewStoryActivity
+import com.example.mykotlinapplication.section_landing.viewmodel.NewStoryViewModel
 import com.example.mykotlinapplication.utils.LayoutUtils
 
 class NewStoryFragment : Fragment(){

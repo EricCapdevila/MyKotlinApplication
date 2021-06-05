@@ -3,7 +3,7 @@ package com.example.mykotlinapplication
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mykotlinapplication.landing.activity.LandingActivity
+import com.example.mykotlinapplication.section_landing.activity.LandingActivity
 
 class MainActivity : AppCompatActivity() {
 

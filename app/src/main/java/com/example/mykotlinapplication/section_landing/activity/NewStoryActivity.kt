@@ -1,14 +1,14 @@
-package com.example.mykotlinapplication.landing.activity
+package com.example.mykotlinapplication.section_landing.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import com.example.mykotlinapplication.R
-import com.example.mykotlinapplication.landing.fragment.NewStoryFragment
-import com.example.mykotlinapplication.landing.fragment.NewStoryFragment.Companion.TITLE
-import com.example.mykotlinapplication.landing.viewmodel.NewStoryViewModel
-import com.example.mykotlinapplication.landing.viewmodel.ViewModelFactory
+import com.example.mykotlinapplication.section_landing.fragment.NewStoryFragment
+import com.example.mykotlinapplication.section_landing.fragment.NewStoryFragment.Companion.TITLE
+import com.example.mykotlinapplication.section_landing.viewmodel.NewStoryViewModel
+import com.example.mykotlinapplication.section_landing.viewmodel.ViewModelFactory
 import com.example.mykotlinapplication.repository.Repository
 
 class NewStoryActivity : AppCompatActivity(){

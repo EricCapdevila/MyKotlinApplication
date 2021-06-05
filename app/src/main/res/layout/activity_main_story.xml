@@ -6,6 +6,14 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
          android:background="@color/main_green">
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_container_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/main_story_tabs"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/main_story_tabs"
             android:layout_width="match_parent"

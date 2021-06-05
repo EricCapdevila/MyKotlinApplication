@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.landing.adapter
+package com.example.mykotlinapplication.section_landing.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlinapplication.R
-import com.example.mykotlinapplication.landing.activity.MainStoryActivity
-import com.example.mykotlinapplication.landing.activity.MainStoryActivity.Companion.SELECTED_STORY
-import com.example.mykotlinapplication.landing.activity.NewStoryActivity
+import com.example.mykotlinapplication.section_storymain.activity.MainStoryActivity
+import com.example.mykotlinapplication.section_landing.activity.NewStoryActivity
 import com.example.mykotlinapplication.room.entities.Story
+import com.example.mykotlinapplication.section_storymain.activity.MainStoryActivity.Companion.SUMMARY
+import com.example.mykotlinapplication.section_storymain.activity.MainStoryActivity.Companion.TITLE
 import com.google.android.material.button.MaterialButton
 
 class LandingListAdapter(var stories: List<Story>,
@@ -70,7 +71,8 @@ class StoryViewHolder(itemView: View, var context : Context) : RecyclerView.View
     fun setListeners(story : Story){
         itemView.findViewById<MaterialButton>(R.id.button_story).setOnClickListener {
             context.startActivity(Intent(context, MainStoryActivity::class.java).apply{
-                putExtra(SELECTED_STORY, story.title)
+                putExtra(TITLE, story.title)
+                putExtra(SUMMARY, story.resume)
             })
         }
     }

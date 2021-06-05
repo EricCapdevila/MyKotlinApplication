@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.landing.viewmodel
+package com.example.mykotlinapplication.section_landing.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
